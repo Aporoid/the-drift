@@ -7,13 +7,17 @@ public class UITrigger : MonoBehaviour
 {
 	public Text triggerText;
 	public Light triggerLight;
-	public GameObject Flashlight;
+	public GameObject FlashlightObject;
+
+	private void Update()
+	{
+		CheckCollection();
+	}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		triggerText.text = "Press E to interact";
 		triggerLight.enabled = true;
-		CheckCollection();
 	}
 
 	private void OnTriggerExit(Collider other)
@@ -24,9 +28,11 @@ public class UITrigger : MonoBehaviour
 
 	private void CheckCollection()
 	{
-		if (Input.GetButtonDown("Interact"))
+		if (Input.GetKeyDown(KeyCode.E))
 		{
-			Flashlight.SetActive(false);
+			FlashlightObject.SetActive(false);
+			triggerLight.enabled = false;
+			triggerText.text = "";
 		}
 	}
 
