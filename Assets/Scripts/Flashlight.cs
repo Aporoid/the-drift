@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-
+	public AudioSource audioSource;
 	public GameObject playerLight;
 
 	private void Update()
@@ -17,6 +17,7 @@ public class Flashlight : MonoBehaviour
 		if (Input.GetKey(KeyCode.F))
 		{
 			playerLight.SetActive(true);
+			audioSource.Play();
 		}
 		else
 		{

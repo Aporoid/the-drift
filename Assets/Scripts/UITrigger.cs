@@ -6,8 +6,14 @@ using UnityEngine.UI;
 public class UITrigger : MonoBehaviour
 {
 	public Text triggerText;
+	public Text objectiveText;
 	public Light triggerLight;
 	public GameObject FlashlightObject;
+
+	private void Start()
+	{
+		triggerLight.enabled = false;
+	}
 
 	private void Update()
 	{
@@ -33,6 +39,7 @@ public class UITrigger : MonoBehaviour
 			FlashlightObject.SetActive(false);
 			triggerLight.enabled = false;
 			triggerText.text = "";
+			objectiveText.text = "Hold F to use the light!";
 		}
 	}
 
