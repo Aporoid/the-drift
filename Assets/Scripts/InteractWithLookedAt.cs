@@ -23,7 +23,7 @@ public class InteractWithLookedAt : MonoBehaviour
 
 	private void OnLookedAtInteractiveChanged(IInteractive newLookedAtInteractive)
 	{
-
+		lookedAtInteractive = newLookedAtInteractive;
 	}
 
 	#region event sub/unsub
