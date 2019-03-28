@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Detects when the player presses the interact key whilst looking at an IInteractive
+/// </summary>
 public class ToggleSetActive : InteractiveObject
 {
-
 	[Tooltip ("The gameobject to toggle.")]
 	[SerializeField]
 	private GameObject objectToToggle;

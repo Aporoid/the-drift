@@ -5,7 +5,6 @@ using UnityEngine;
 /// <summary>
 /// Detects when the player presses the interact key whilst looking at an IInteractive
 /// </summary>
-
 public class InteractWithLookedAt : MonoBehaviour
 {
 	private IInteractive lookedAtInteractive;

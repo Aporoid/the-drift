@@ -13,6 +13,7 @@ public class Door : InteractiveObject
 	/// </summary>
 	public Door()
 	{
+		//Changes UI text to be appropriate of door's name
 		displayText = nameof(Door);
 	}
 

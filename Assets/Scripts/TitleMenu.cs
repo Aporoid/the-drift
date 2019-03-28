@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Used to load appropriate responses to menu interaction.
+/// </summary>
 public class TitleMenu : MonoBehaviour
 {
 	[SerializeField]

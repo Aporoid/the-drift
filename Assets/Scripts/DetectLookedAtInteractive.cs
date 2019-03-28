@@ -6,7 +6,6 @@ using UnityEngine;
 /// <summary>
 /// Detects interactive elements the player is looking at.
 /// </summary>
-
 public class DetectLookedAtInteractive : MonoBehaviour
 {
 	[Tooltip("Starting point of raycast used to detect interactives.")]
