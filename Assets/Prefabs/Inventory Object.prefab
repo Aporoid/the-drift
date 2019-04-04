@@ -401,3 +401,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Take InventoryObject
   objectName: InventoryObject
+  description: 
+  icon: {fileID: 0}
