@@ -1,12 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class InventoryMenu : MonoBehaviour
 {
 	[SerializeField]
 	private GameObject inventoryMenuItemTogglePrefab;
+
+	[Tooltip("The content of the scroll view for the list of inventory items")]
+	[SerializeField]
+	private Transform inventoryListContentArea;
+
+	[Tooltip("Place in the UI for displaying the name of the selected inventory item.")]
+	[SerializeField]
+	private Text itemLabelText;
+
+	[Tooltip("Place in the UI for displaying the info of the selected inventory item.")]
+	[SerializeField]
+	private Text descriptionAreaText;
 
 	private static InventoryMenu instance;
 	private CanvasGroup canvasGroup;
@@ -39,7 +52,9 @@ public class InventoryMenu : MonoBehaviour
 	/// <param name="inventoryObjectToAdd"></param>
 	public void AddItemToMenu(InventoryObject inventoryObjectToAdd)
 	{
-		Instantiate(inventoryMenuItemTogglePrefab);
+		GameObject clone = Instantiate(inventoryMenuItemTogglePrefab, inventoryListContentArea);
+		InventoryMenuItemToggle toggle = clone.GetComponent<InventoryMenuItemToggle>();
+		toggle.AssociatedInventoryObject = inventoryObjectToAdd;
 	}
 
 	private void ShowMenu()
@@ -60,6 +75,25 @@ public class InventoryMenu : MonoBehaviour
 		Cursor.lockState = CursorLockMode.Locked;
 		rigidbodyFirstPersonController.enabled = true;
 		audioSource.Play();
+	}
+
+	/// <summary>
+	/// This is the event handler for InventoryMenuItemSelected.
+	/// </summary>
+	private void onInventoryMenuItemSelected(InventoryObject inventoryObjectThatWasSelected)
+	{
+		itemLabelText.text = inventoryObjectThatWasSelected.ObjectName;
+		descriptionAreaText.text = inventoryObjectThatWasSelected.Description;
+	}
+
+	private void OnEnable()
+	{
+		InventoryMenuItemToggle.InventoryMenuItemSelected += onInventoryMenuItemSelected;
+	}
+
+	private void OnDisable()
+	{
+		InventoryMenuItemToggle.InventoryMenuItemSelected -= onInventoryMenuItemSelected;
 	}
 
 	private void Update()
