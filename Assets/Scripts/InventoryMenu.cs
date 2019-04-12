@@ -5,9 +5,14 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class InventoryMenu : MonoBehaviour
 {
+	[SerializeField]
+	private GameObject inventoryMenuItemTogglePrefab;
+
 	private static InventoryMenu instance;
 	private CanvasGroup canvasGroup;
 	private RigidbodyFirstPersonController rigidbodyFirstPersonController;
+	private AudioSource audioSource;
+
 	public static InventoryMenu Instance
 	{
 		get
@@ -28,6 +33,15 @@ public class InventoryMenu : MonoBehaviour
 		HideMenu();
 	}
 
+	/// <summary>
+	/// Instantiates a new InventoryMenuItemToggle prefab, and adds it to your inventory menu.
+	/// </summary>
+	/// <param name="inventoryObjectToAdd"></param>
+	public void AddItemToMenu(InventoryObject inventoryObjectToAdd)
+	{
+		Instantiate(inventoryMenuItemTogglePrefab);
+	}
+
 	private void ShowMenu()
 	{
 		canvasGroup.alpha = 1;
@@ -35,6 +49,7 @@ public class InventoryMenu : MonoBehaviour
 		rigidbodyFirstPersonController.enabled = false;
 		Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.None;
+		audioSource.Play();
 	}
 
 	private void HideMenu()
@@ -44,6 +59,7 @@ public class InventoryMenu : MonoBehaviour
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 		rigidbodyFirstPersonController.enabled = true;
+		audioSource.Play();
 	}
 
 	private void Update()
@@ -75,9 +91,19 @@ public class InventoryMenu : MonoBehaviour
 
 		canvasGroup = GetComponent<CanvasGroup>();
 		rigidbodyFirstPersonController = FindObjectOfType<RigidbodyFirstPersonController>();
+		audioSource = GetComponent<AudioSource>();
 	}
 	private void Start()
 	{
 		HideMenu();
+		StartCoroutine(WaitForAudioClip());
+	}
+
+	private IEnumerator WaitForAudioClip()
+	{
+		float orignalVolume = audioSource.volume;
+		audioSource.volume = 0;
+		yield return new WaitForSeconds(audioSource.clip.length);
+		audioSource.volume = orignalVolume;
 	}
 }
