@@ -191,7 +191,7 @@ MonoBehaviour:
   displayText: Take Note
   objectName: Smiler note
   description: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2dd6a6a9bc1b790419d8ea81a89c4c62, type: 3}
 --- !u!64 &5822620000689642236
 MeshCollider:
   m_ObjectHideFlags: 0
