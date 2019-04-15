@@ -8,16 +8,19 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class TitleMenu : MonoBehaviour
 {
-	[SerializeField]
-	private string gameSceneName;
-
 	public void LoadGameScene()
 	{
-		SceneManager.LoadScene(gameSceneName);
+		StartCoroutine("Countdown");
 	}
 
 	public void ExitGame()
 	{
 		Application.Quit();
+	}
+
+	private IEnumerator Countdown()
+	{
+		yield return new WaitForSeconds(5);
+		SceneManager.LoadScene(1);
 	}
 }
