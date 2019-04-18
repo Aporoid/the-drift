@@ -28,6 +28,5 @@ public class ToggleSetActive : InteractiveObject
 			hasBeenUsed = true;
 			if (!isReusable) displayText = string.Empty;
 		}
-
 	}
 }

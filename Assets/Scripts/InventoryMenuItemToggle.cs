@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Detects when a player picks up an object and adds it to the inventory with appropriate icons and descriptions.
+/// </summary>
 public class InventoryMenuItemToggle : MonoBehaviour
 {
 	[Tooltip("Specifies which image icon will be associated with this object")]

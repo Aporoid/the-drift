@@ -18,6 +18,9 @@ public class TitleMenu : MonoBehaviour
 		Application.Quit();
 	}
 
+	/// <summary>
+	/// This causes a purposeful delay to simulate a "loading screen".
+	/// </summary>
 	private IEnumerator Countdown()
 	{
 		yield return new WaitForSeconds(5);

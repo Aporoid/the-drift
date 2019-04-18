@@ -26,8 +26,6 @@ public class Door : InteractiveObject
 	private AudioClip openAudioClip;
 
 	//If this conidition is true, it will display the door is locked. If false, it will display the default text.
-	//public override string DisplayText => isLocked ? lockedDisplayText : base.DisplayText;
-
 	public override string DisplayText
 	{
 		get
