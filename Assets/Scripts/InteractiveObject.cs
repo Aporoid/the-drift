@@ -8,11 +8,12 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class InteractiveObject : MonoBehaviour, IInteractive
 {
+	[Tooltip ("What you see when you interact with it in the game world")]
 	[SerializeField]
 	protected string displayText = nameof(InteractiveObject);
 
-	public string DisplayText => displayText;
-	private AudioSource audioSource;
+	public virtual string DisplayText => displayText;
+	protected AudioSource audioSource;
 
 	protected virtual void Awake()
 	{

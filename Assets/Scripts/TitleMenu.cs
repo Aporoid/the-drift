@@ -8,16 +8,22 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class TitleMenu : MonoBehaviour
 {
-	[SerializeField]
-	private string gameSceneName;
-
 	public void LoadGameScene()
 	{
-		SceneManager.LoadScene(gameSceneName);
+		StartCoroutine("Countdown");
 	}
 
 	public void ExitGame()
 	{
 		Application.Quit();
+	}
+
+	/// <summary>
+	/// This causes a purposeful delay to simulate a "loading screen".
+	/// </summary>
+	private IEnumerator Countdown()
+	{
+		yield return new WaitForSeconds(5);
+		SceneManager.LoadScene(1);
 	}
 }

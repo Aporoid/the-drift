@@ -9,8 +9,6 @@ public class InteractWithLookedAt : MonoBehaviour
 {
 	private IInteractive lookedAtInteractive;
 
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Interact") && lookedAtInteractive != null)
