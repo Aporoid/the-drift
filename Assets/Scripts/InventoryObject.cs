@@ -17,9 +17,14 @@ public class InventoryObject : InteractiveObject
 	[SerializeField]
 	private Sprite icon;
 
+	[Tooltip("Used to indicate if the inventory object is a smiler clue or not.")]
+	[SerializeField]
+	private bool isClue;
+
 	public Sprite Icon => icon;
 	public string ObjectName => objectName;
 	public string Description => description;
+	public static int clueNumber;
 
 	private new Renderer renderer;
 	private new Collider collider;
@@ -48,5 +53,14 @@ public class InventoryObject : InteractiveObject
 		InventoryMenu.Instance.AddItemToMenu(this);
 		renderer.enabled = false;
 		collider.enabled = false;
+		TestClue();
+	}
+
+	private void TestClue()
+	{
+		if(isClue == true)
+		{
+			clueNumber++;
+		}
 	}
 }
