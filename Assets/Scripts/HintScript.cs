@@ -8,7 +8,7 @@ public class HintScript : MonoBehaviour
 	[SerializeField]
 	private Text peterResponses;
 
-	private AudioSource audio;
+	private new AudioSource audio;
 	//public AudioClip[] peterClips = new AudioClip[6];
 	public AudioClip peterHint1;
 	public AudioClip peterHint2;
