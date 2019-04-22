@@ -6,7 +6,12 @@ public class Flashlight : MonoBehaviour
 {
     public Light myLight;
 
-    private void Update()
+	private void Start()
+	{
+		myLight.enabled = false;
+	}
+
+	private void Update()
     {
         if (Input.GetKeyUp(KeyCode.F))
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TravelTrigger : MonoBehaviour
 {
@@ -9,14 +10,21 @@ public class TravelTrigger : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		travelText.text = "Press E to travel";
+		travelText.text = "Press E to enter City Hall";
+		Travel();
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		travelText.text = "";
 	}
 
 	private void Travel()
 	{
-		if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetButtonDown("Interact"))
 		{
 			travelText.text = "";
+			SceneManager.LoadScene(3);
 		}
 	}
 }
