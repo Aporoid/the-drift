@@ -14,6 +14,17 @@ public class ClueBoundaryController : MonoBehaviour
 	public GameObject graveBlocker;
 	public GameObject barnBlocker;
 
+	private void OnTriggerEnter(Collider other)
+	{
+		Debug.Log("The player entered the trigger");
+		CheckBoundaryParameters();
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		blockerText.text = "";
+	}
+
 	private void CheckBoundaryParameters()
 	{
 		if(InventoryObject.clueNumber == 1)

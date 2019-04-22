@@ -27,7 +27,7 @@ public class HintScript : MonoBehaviour
 		if (InventoryObject.clueNumber == 1)
 		{
 			audio.PlayOneShot(peterHint1, 1);
-			peterResponses.text = "Uhhhh, sounds like it’s put between a couple of light posts. Try finding an area where there’s two right next to each other in a row, like buoys on a dock.That’s best I got, sorry Rick.";
+			peterResponses.text = "Uhhhh, sounds like it’s put between a couple of light posts. Try finding an area where there’s two right next to each other in a row, like buoys on a dock. That’s best I got, sorry Rick.";
 		}
 		else if (InventoryObject.clueNumber == 2)
 		{
