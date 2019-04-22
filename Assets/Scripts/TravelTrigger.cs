@@ -24,6 +24,7 @@ public class TravelTrigger : MonoBehaviour
 		if (Input.GetButtonDown("Interact"))
 		{
 			travelText.text = "";
+			Debug.Log("The player pressed interact");
 			SceneManager.LoadScene(3);
 		}
 	}

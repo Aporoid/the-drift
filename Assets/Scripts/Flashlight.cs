@@ -13,9 +13,14 @@ public class Flashlight : MonoBehaviour
 
 	private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.F))
-        {
-            myLight.enabled = !myLight.enabled;
-        }
+		CheckIfLight();
     }
+
+	private void CheckIfLight()
+	{
+		if (Input.GetKeyUp(KeyCode.F) && InventoryObject.hasFlashlight == true)
+		{
+			myLight.enabled = !myLight.enabled;
+		}
+	}
 }
