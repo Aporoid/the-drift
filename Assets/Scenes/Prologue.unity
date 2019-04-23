@@ -1177,6 +1177,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164691830}
   m_CullTransparentMesh: 0
+--- !u!1 &1308871579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 160098, guid: 69b40ef7ee16c834c844b3fa26e0fdda,
+    type: 3}
+  m_PrefabInstance: {fileID: 779389269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1548138972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prologueSubtitles: {fileID: 1568040960}
   loadingScreen: {fileID: 2064439377}
+  rainPrefab: {fileID: 1308871579}
   line1: {fileID: 8300000, guid: 40f7c95e9edd2654bb1f259e2732a7e0, type: 3}
   line2: {fileID: 8300000, guid: b370c453519fc3145a46bae220076461, type: 3}
   line3: {fileID: 8300000, guid: a5deb7cff824a2a4ea0ca6020fb50017, type: 3}

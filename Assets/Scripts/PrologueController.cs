@@ -12,6 +12,8 @@ public class PrologueController : MonoBehaviour
 	[SerializeField]
 	private GameObject loadingScreen;
 
+	public GameObject rainPrefab;
+
 	private new AudioSource audio;
 	//public AudioClip[] peterClips = new AudioClip[6];
 	public AudioClip line1;
@@ -83,6 +85,7 @@ public class PrologueController : MonoBehaviour
 		if(lineCount == 5)
 		{
 			prologueSubtitles.text = "";
+			rainPrefab.SetActive(false);
 			loadingScreen.SetActive(true);
 			StartCoroutine(Countdown());
 		}
