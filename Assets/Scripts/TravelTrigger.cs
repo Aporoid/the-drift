@@ -10,22 +10,21 @@ public class TravelTrigger : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		travelText.text = "Press E to enter City Hall";
-		Travel();
+		travelText.text = "Press T to enter City Hall";
 	}
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (Input.GetButtonDown("Interact2"))
+        {
+            travelText.text = "";
+            Debug.Log("The player pressed interact");
+            SceneManager.LoadScene(3);
+        }
+    }
 
 	private void OnTriggerExit(Collider other)
 	{
 		travelText.text = "";
-	}
-
-	private void Travel()
-	{
-		if (Input.GetButtonDown("Interact"))
-		{
-			travelText.text = "";
-			Debug.Log("The player pressed interact");
-			SceneManager.LoadScene(3);
-		}
 	}
 }
