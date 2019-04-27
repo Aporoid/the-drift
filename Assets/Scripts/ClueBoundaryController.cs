@@ -14,15 +14,30 @@ public class ClueBoundaryController : MonoBehaviour
 	public GameObject graveBlocker;
 	public GameObject barnBlocker;
 
+	public Collider churchCollider;
+	public Collider parkCollider;
+	public Collider graveyardCollider;
+	public Collider barnCollider;
+
+	private void Start()
+	{
+		churchCollider.enabled = true;
+		parkCollider.enabled = true;
+		graveyardCollider.enabled = true;
+		barnCollider.enabled = true;
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		Debug.Log("The player entered the trigger");
 		CheckBoundaryParameters();
+		StartCoroutine("Countdown");
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
 		blockerText.text = "";
+		Debug.Log("The player left the trigger");
 	}
 
 	private void CheckBoundaryParameters()
@@ -35,21 +50,31 @@ public class ClueBoundaryController : MonoBehaviour
 		{
 			blockerText.text = "I haven't found the clue in this area yet.";
 			churchBlocker.SetActive(false);
+			churchCollider.enabled = false;
 		}
 		else if (InventoryObject.clueNumber == 3)
 		{
 			blockerText.text = "I haven't found the clue in this area yet.";
 			parkBlocker.SetActive(false);
+			parkCollider.enabled = false;
 		}
 		else if (InventoryObject.clueNumber == 4)
 		{
 			blockerText.text = "I haven't found the clue in this area yet.";
 			graveBlocker.SetActive(false);
+			graveyardCollider.enabled = false;
 		}
 		else if (InventoryObject.clueNumber == 5)
 		{
 			blockerText.text = "I haven't found the clue in this area yet.";
 			barnBlocker.SetActive(false);
+			barnCollider.enabled = false;
 		}
+	}
+
+	private IEnumerator Countdown()
+	{
+		yield return new WaitForSeconds(3);
+		blockerText.text = "";
 	}
 }
