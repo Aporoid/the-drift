@@ -29,6 +29,7 @@ public class InventoryObject : InteractiveObject
 	public string Description => description;
 	public static int clueNumber;
 	public static bool hasFlashlight;
+	public static bool itemPickedUp;
 
 	private new Renderer renderer;
 	private new Collider collider;
@@ -57,6 +58,7 @@ public class InventoryObject : InteractiveObject
 		InventoryMenu.Instance.AddItemToMenu(this);
 		renderer.enabled = false;
 		collider.enabled = false;
+		itemPickedUp = true;
 		TestClue();
 	}
 
