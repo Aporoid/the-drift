@@ -24,12 +24,16 @@ public class InventoryObject : InteractiveObject
 	[SerializeField]
 	private bool isFlashlight;
 
+	[SerializeField]
+	private bool isSmilersKey;
+
 	public Sprite Icon => icon;
 	public string ObjectName => objectName;
 	public string Description => description;
 	public static int clueNumber;
 	public static bool hasFlashlight;
 	public static bool itemPickedUp;
+	public static bool hasSmilersKey;
 
 	private new Renderer renderer;
 	private new Collider collider;
@@ -71,6 +75,10 @@ public class InventoryObject : InteractiveObject
 		if(isFlashlight == true)
 		{
 			hasFlashlight = true;
+		}
+		if(isSmilersKey == true)
+		{
+			hasSmilersKey = true;
 		}
 	}
 }
