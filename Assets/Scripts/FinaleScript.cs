@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class FinaleScript : MonoBehaviour
 {
@@ -19,12 +20,21 @@ public class FinaleScript : MonoBehaviour
 
 	private int lineCount;
 	private float duration;
+	public static bool isDying;
 
 	private new AudioSource audio;
+	public FirstPersonController cc;
+	public Canvas endgameCanvas;
+	public Image blackScreen;
+	public Camera cam;
+	public Transform target;
 
 	private void Start()
 	{
 		audio = GetComponent<AudioSource>();
+		endgameCanvas.enabled = false;
+		blackScreen.enabled = false;
+		isDying = false;
 	}
 
 	private void Update()
@@ -51,6 +61,9 @@ public class FinaleScript : MonoBehaviour
 
 	private void Ending()
 	{
+		cam.transform.LookAt(target);
+		endgameCanvas.enabled = true;
+		cc.enabled = false;
 		if(lineCount == 0)
 		{
 			duration = smilerLine1.length;
@@ -69,21 +82,13 @@ public class FinaleScript : MonoBehaviour
 		}
 		if (lineCount == 2)
 		{
-			duration = richardGroan.length;
-			StartCoroutine(WaitForSound());
-			audio.PlayOneShot(richardGroan, 1);
-			subtitles.text = "Richard: Augh!!";
-			StopCoroutine(WaitForSound());
-		}
-		if (lineCount == 3)
-		{
 			duration = smilerLine2ThroughDoor.length;
 			StartCoroutine(WaitForSound());
 			audio.PlayOneShot(smilerLine2ThroughDoor, 1);
 			subtitles.text = "Smiler [muffled]: Listen up, detective. Your wife was just as stubborn as you are.";
 			StopCoroutine(WaitForSound());
 		}
-		if (lineCount == 4)
+		if (lineCount == 3)
 		{
 			duration = doorOpen.length;
 			StartCoroutine(WaitForSound());
@@ -91,7 +96,7 @@ public class FinaleScript : MonoBehaviour
 			subtitles.text = "";
 			StopCoroutine(WaitForSound());
 		}
-		if (lineCount == 5)
+		if (lineCount == 4)
 		{
 			duration = smilerEnding.length;
 			StartCoroutine(WaitForSound());
@@ -99,12 +104,13 @@ public class FinaleScript : MonoBehaviour
 			subtitles.text = "Smiler: Goodbye, detective.";
 			StopCoroutine(WaitForSound());
 		}
-		if (lineCount == 6)
+		if (lineCount == 5)
 		{
 			duration = gunshot.length;
 			StartCoroutine(WaitForSound());
 			audio.PlayOneShot(gunshot, 1);
-			subtitles.text = "*BANG*";
+			blackScreen.enabled = true;
+			subtitles.text = "";
 			StopCoroutine(WaitForSound());
 		}
 	}
