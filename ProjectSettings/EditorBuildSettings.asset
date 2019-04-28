@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CityHall.unity
     guid: d166ab145cc861e4e993fd0b92e5ff1a
+  - enabled: 1
+    path: Assets/Scenes/Epilogue.unity
+    guid: 36a7cdbc743d19b4783448fac047fe0b
   m_configObjects: {}

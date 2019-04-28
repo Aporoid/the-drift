@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
@@ -112,6 +113,7 @@ public class FinaleScript : MonoBehaviour
 			blackScreen.enabled = true;
 			subtitles.text = "";
 			StopCoroutine(WaitForSound());
+			SceneManager.LoadScene(4);
 		}
 	}
 

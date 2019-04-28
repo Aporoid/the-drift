@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 public class TravelTrigger : MonoBehaviour
 {
 	public Text travelText;
+	public Canvas loadingScreen;
+
+	private void Start()
+	{
+		loadingScreen.enabled = false;
+	}
 
 	private void OnTriggerEnter(Collider other)
 	{
@@ -17,14 +23,21 @@ public class TravelTrigger : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact"))
         {
+			loadingScreen.enabled = true;
             travelText.text = "";
             Debug.Log("The player pressed interact");
-            SceneManager.LoadScene(3);
+			StartCoroutine(Countdown());
         }
     }
 
 	private void OnTriggerExit(Collider other)
 	{
 		travelText.text = "";
+	}
+
+	private IEnumerator Countdown()
+	{
+		yield return new WaitForSeconds(5);
+		SceneManager.LoadScene(3);
 	}
 }
