@@ -3,20 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Script assigned to handling the Smiler's taunts towards the player in the City Hall level.
+/// </summary>
 public class LinesController : MonoBehaviour
 {
+	#region serializedFields
+	[Tooltip("Subtitles used in this sequence.")]
     [SerializeField]
     private Text subtitles;
 
-    private new AudioSource audio;
+	[Tooltip("Richard's optimistic intro line, according to script.")]
+	[SerializeField]
+	private AudioClip RichardLine1;
 
-    public AudioClip RichardLine1;
-    public AudioClip smilerIntercom1;
-    public AudioClip smilerDisappointedKey;
+	[Tooltip("The Smiler's first real line, said over speaker intercom, according to script.")]
+	[SerializeField]
+	private AudioClip smilerIntercom1;
 
-	public Collider frontDoorLineCollider;
-	public Collider storageRoomCollider;
+	[Tooltip("Smiler's less-than-pleased response to when the player opens the storage room.")]
+	[SerializeField]
+	private AudioClip smilerDisappointedKey;
 
+	[Tooltip("Opening collider to ensure the first lines are played immediately, and that the trigger is disabled afterwards.")]
+	[SerializeField]
+	private Collider frontDoorLineCollider;
+
+	[Tooltip("The storage room collider that plays Smiler's disappointed line.")]
+	[SerializeField]
+	private Collider storageRoomCollider;
+	#endregion
+
+	private new AudioSource audio;
 	private bool isLockerTrigger;
 	private int voicelineUpdater = 1;
 	private float duration;

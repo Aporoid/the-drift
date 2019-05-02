@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Used when entering the trigger in the City Hall main doorway. 
+/// </summary>
 public class TravelTrigger : MonoBehaviour
 {
 	public Text travelText;

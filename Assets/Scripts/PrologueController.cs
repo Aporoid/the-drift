@@ -6,25 +6,49 @@ using UnityEngine.SceneManagement;
 
 public class PrologueController : MonoBehaviour
 {
+	#region serializedfields
+	[Tooltip("Subtitles assigned to this scene.")]
 	[SerializeField]
 	private Text prologueSubtitles;
 
+	[Tooltip("The mock-up loading screen used for visual enhancement.")]
 	[SerializeField]
 	private GameObject loadingScreen;
 
-	public GameObject rainPrefab;
+	[Tooltip("Richard's first line in sequence.")]
+	[SerializeField]
+	private AudioClip line1;
+
+	[Tooltip("Richard's second line in sequence.")]
+	[SerializeField]
+	private AudioClip line2;
+
+	[Tooltip("Richard's third line in sequence.")]
+	[SerializeField]
+	private AudioClip line3;
+
+	[Tooltip("Richard's fourth line in sequence.")]
+	[SerializeField]
+	private AudioClip line4;
+
+	[Tooltip("Richard's last line in sequence.")]
+	[SerializeField]
+	private AudioClip line5;
+
+	[Tooltip("Image of the Alabama detective badge, to be displayed in time with the text.")]
+	[SerializeField]
+	private Image badge;
+
+	[Tooltip("Image of the polaroid clue, to be displayed in time with the text.")]
+	[SerializeField]
+	private Image noteImage;
+
+	[Tooltip("Image of the polaroid church, to be displayed in time with the text.")]
+	[SerializeField]
+	private Image churchImage;
+	#endregion
 
 	private new AudioSource audio;
-	//public AudioClip[] peterClips = new AudioClip[6];
-	public AudioClip line1;
-	public AudioClip line2;
-	public AudioClip line3;
-	public AudioClip line4;
-	public AudioClip line5;
-	public Image badge;
-	public Image noteImage;
-	public Image churchImage;
-
 	private int lineCount;
 	private float duration;
 
@@ -37,7 +61,7 @@ public class PrologueController : MonoBehaviour
 		Narration();
 	}
 
-	private void Narration()
+	private void Narration() //Used to narrate the opening sequence.
 	{
 		if(lineCount == 0)
 		{
@@ -85,7 +109,6 @@ public class PrologueController : MonoBehaviour
 		if(lineCount == 5)
 		{
 			prologueSubtitles.text = "";
-			rainPrefab.SetActive(false);
 			loadingScreen.SetActive(true);
 			StartCoroutine(Countdown());
 		}

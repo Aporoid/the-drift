@@ -5,20 +5,37 @@ using UnityEngine.UI;
 
 public class HintScript : MonoBehaviour
 {
+	#region serializedFields
+	[Tooltip("The subtitles within the pop-up box when requesting a hint.")]
 	[SerializeField]
 	private Text peterResponses;
 
+	[Tooltip("The button to exit the hint pop-up. Becomes disabled until the audio is played at least once over.")]
 	[SerializeField]
 	private Button backButton;
 
-	private new AudioSource audio;
-	//public AudioClip[] peterClips = new AudioClip[6];
-	public AudioClip peterHint1;
-	public AudioClip peterHint2;
-	public AudioClip peterHint3;
-	public AudioClip peterHint4;
-	public AudioClip peterHint5;
+	[Tooltip("Peter's first line regarding the overlook clue.")]
+	[SerializeField]
+	private AudioClip peterHint1;
 
+	[Tooltip("Peter's second line regarding the greenhouse clue.")]
+	[SerializeField]
+	private AudioClip peterHint2;
+
+	[Tooltip("Peter's third line regarding the graveyard clue.")]
+	[SerializeField]
+	private AudioClip peterHint3;
+
+	[Tooltip("Peter's fourth line regarding the barnyard clue.")]
+	[SerializeField]
+	private AudioClip peterHint4;
+
+	[Tooltip("Peter's fifth line regarding the city hall clue.")]
+	[SerializeField]
+	private AudioClip peterHint5;
+	#endregion
+
+	private new AudioSource audio;
 	private float duration;
 
 	private void Start()
@@ -26,7 +43,7 @@ public class HintScript : MonoBehaviour
 		audio = GetComponent<AudioSource>();
 	}
 
-	public void GiveHints()
+	public void GiveHints() // used to give both visual and audio cues for when the player requests help from the inventory menu.
 	{
 		if (InventoryObject.clueNumber == 1)
 		{

@@ -5,30 +5,61 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
+/// <summary>
+/// Script responsible for the final dialogue within City Hall. This script also includes the scripting for the final cutscene.
+/// </summary>
 public class FinaleScript : MonoBehaviour
 {
+	#region serializedfields
+	[Tooltip("The subtitles for this scene.")]
 	[SerializeField]
 	private Text subtitles;
 
-	public AudioClip smilerLine1;
-	public AudioClip smilerLine2ThroughDoor;
-	public AudioClip smilerLine3ThroughDoor;
-	public AudioClip smilerEnding;
-	public AudioClip richardGroan;
+	[Tooltip("The last of Smiler's audio clips over intercom.")]
+	[SerializeField]
+	private AudioClip smilerLine1;
+
+	[Tooltip("The Smiler line of him talking through the door, 1st time.")]
+	[SerializeField]
+	private AudioClip smilerLine2ThroughDoor;
+
+	[Tooltip("The Smiler line of him talking through the door, 2nd time.")]
+	[SerializeField]
+	private AudioClip smilerLine3ThroughDoor;
+
+	[Tooltip("The Smiler line of him talking naturally, after opening the door and speaking face-to-face.")]
+	[SerializeField]
+	private AudioClip smilerEnding;
+
+	[Tooltip("The trigger box that causes the final cutscene.")]
+	[SerializeField]
+	private Collider finalCollider;
+
+	[Tooltip("The First person controller currently operating for the player.")]
+	[SerializeField]
+	private FirstPersonController cc;
+
+	[Tooltip("The canvas used to create the cinematic black bars on the screen.")]
+	[SerializeField]
+	private Canvas endgameCanvas;
+
+	[Tooltip("The pure black image that overrides all sight for the dramatic ending.")]
+	[SerializeField]
+	private Image blackScreen;
+
+	[Tooltip("The camera component used by the player controller, accessed to freeze their directional facing for the cutscene.")]
+	[SerializeField]
+	private Camera cam;
+	#endregion
+
+	private new AudioSource audio;
 	public AudioClip gunshot;
 	public AudioClip doorOpen;
-	public Collider finalCollider;
+	public Transform target;
 
 	private int lineCount;
 	private float duration;
 	public static bool isDying;
-
-	private new AudioSource audio;
-	public FirstPersonController cc;
-	public Canvas endgameCanvas;
-	public Image blackScreen;
-	public Camera cam;
-	public Transform target;
 
 	private void Start()
 	{
@@ -43,7 +74,7 @@ public class FinaleScript : MonoBehaviour
 		CheckForKey();
 	}
 
-	private void CheckForKey()
+	private void CheckForKey() // Used to test if the player has Smiler's Key or not. If not, the trigger is disabled.
 	{
 		if(InventoryObject.hasSmilersKey == true)
 		{
@@ -60,7 +91,7 @@ public class FinaleScript : MonoBehaviour
 		Ending();
 	}
 
-	private void Ending()
+	private void Ending() // This is the final cutscene. Coded in such a way so that the player is entirely motionless and stuck looking at a certain point, as per cutscene standards.
 	{
 		cam.transform.LookAt(target);
 		endgameCanvas.enabled = true;
@@ -117,7 +148,7 @@ public class FinaleScript : MonoBehaviour
 		}
 	}
 
-	IEnumerator WaitForSound()
+	IEnumerator WaitForSound() //Used to advance to the next line in the script.
 	{
 		yield return new WaitForSeconds(duration);
 		lineCount++;

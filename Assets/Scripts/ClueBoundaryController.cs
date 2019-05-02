@@ -8,16 +8,43 @@ using UnityEngine.UI;
 /// </summary>
 public class ClueBoundaryController : MonoBehaviour
 {
-	public Text blockerText;
-	public GameObject churchBlocker;
-	public GameObject parkBlocker;
-	public GameObject graveBlocker;
-	public GameObject barnBlocker;
+	#region serializedfields
+	[Tooltip("The pop-up text that shows up when the player approaches a boundary")]
+	[SerializeField]
+	private Text blockerText;
 
-	public Collider churchCollider;
-	public Collider parkCollider;
-	public Collider graveyardCollider;
-	public Collider barnCollider;
+	[Tooltip("The invisible wall around the church and overlook area.")]
+	[SerializeField]
+	private GameObject churchBlocker;
+
+	[Tooltip("The invisible wall around the park and greenhouse area.")]
+	[SerializeField]
+	private GameObject parkBlocker;
+
+	[Tooltip("The invisible wall around the graveyard area.")]
+	[SerializeField]
+	private GameObject graveBlocker;
+
+	[Tooltip("The invisible wall around the barnyard area.")]
+	[SerializeField]
+	private GameObject barnBlocker;
+
+	[Tooltip("The collider box for detecting the church boundary.")]
+	[SerializeField]
+	private Collider churchCollider;
+
+	[Tooltip("The collider box for detecting the park boundary.")]
+	[SerializeField]
+	private Collider parkCollider;
+
+	[Tooltip("The collider box for detecting the graveyard boundary.")]
+	[SerializeField]
+	private Collider graveyardCollider;
+
+	[Tooltip("The collider box for detecting the barnyard boundary.")]
+	[SerializeField]
+	private Collider barnCollider;
+	#endregion
 
 	private void Start()
 	{
@@ -40,7 +67,7 @@ public class ClueBoundaryController : MonoBehaviour
 		Debug.Log("The player left the trigger");
 	}
 
-	private void CheckBoundaryParameters()
+	private void CheckBoundaryParameters() // method used to decide which boundaries should and shouldn't be enabled. 
 	{
 		if(InventoryObject.clueNumber == 1)
 		{
@@ -72,7 +99,7 @@ public class ClueBoundaryController : MonoBehaviour
 		}
 	}
 
-	private IEnumerator Countdown()
+	private IEnumerator Countdown() //Used to remove the indicator text when staying in a boundary box more than 3 seconds.
 	{
 		yield return new WaitForSeconds(3);
 		blockerText.text = "";
