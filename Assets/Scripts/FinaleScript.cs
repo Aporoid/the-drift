@@ -37,9 +37,13 @@ public class FinaleScript : MonoBehaviour
 
 	[Tooltip("The First person controller currently operating for the player.")]
 	[SerializeField]
-	private FirstPersonController cc;
+	private FirstPersonController characterController;
 
-	[Tooltip("The canvas used to create the cinematic black bars on the screen.")]
+    [Tooltip("The canvas used to update HUD on the screen.")]
+    [SerializeField]
+    private Canvas HUDCanvas;
+    
+    [Tooltip("The canvas used to create the cinematic black bars on the screen.")]
 	[SerializeField]
 	private Canvas endgameCanvas;
 
@@ -93,9 +97,10 @@ public class FinaleScript : MonoBehaviour
 
 	private void Ending() // This is the final cutscene. Coded in such a way so that the player is entirely motionless and stuck looking at a certain point, as per cutscene standards.
 	{
+        HUDCanvas.enabled = false;
 		cam.transform.LookAt(target);
 		endgameCanvas.enabled = true;
-		cc.enabled = false;
+		characterController.enabled = false;
 		if(lineCount == 0)
 		{
 			duration = smilerLine1.length;
@@ -111,6 +116,8 @@ public class FinaleScript : MonoBehaviour
 			audio.PlayOneShot(gunshot, 1);
 			subtitles.text = "*BANG*";
 			StopCoroutine(WaitForSound());
+            isDying = true;
+            PlayerAnimationController.PlayerFallsDown();
 		}
 		if (lineCount == 2)
 		{
