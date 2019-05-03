@@ -42,6 +42,9 @@ public class LinesController : MonoBehaviour
         CheckVoiceTriggers();
 	}
 
+	/// <summary>
+	/// This method plays an audio clip, runs an IEnumerator to wait for the clip to end, moves up a tick, and plays the next clip.
+	/// </summary>
 	private void CheckVoiceTriggers()
 	{
         if (voicelineUpdater == 1)

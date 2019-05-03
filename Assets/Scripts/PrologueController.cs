@@ -61,7 +61,10 @@ public class PrologueController : MonoBehaviour
 		Narration();
 	}
 
-	private void Narration() //Used to narrate the opening sequence.
+	/// <summary>
+	/// This method plays an audio clip, runs an IEnumerator to wait for the clip to end, moves up a tick, and plays the next clip.
+	/// </summary>
+	private void Narration()
 	{
 		if(lineCount == 0)
 		{
