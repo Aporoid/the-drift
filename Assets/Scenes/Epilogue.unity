@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c06c9fd5878814a95f0c61455f8d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prologueSubtitles: {fileID: 1500289254}
+  endingSubtitles: {fileID: 1500289254}
   folder: {fileID: 678393995}
   credits: {fileID: 2065924809}
   thankyouText: {fileID: 1664462077}

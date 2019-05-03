@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -25,5 +26,10 @@ public class TitleMenu : MonoBehaviour
 	{
 		yield return new WaitForSeconds(5);
 		SceneManager.LoadScene(1);
+	}
+
+	public void Credits()
+	{
+		Application.OpenURL("https://docs.google.com/document/d/13gk1uE2NBC20ZVJlLmtLoMnycH66E8xByu3F316JaWA/edit?usp=sharing");
 	}
 }

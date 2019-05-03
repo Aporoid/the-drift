@@ -39,9 +39,9 @@ public class FinaleScript : MonoBehaviour
 	[SerializeField]
 	private FirstPersonController characterController;
 
-    [Tooltip("The canvas used to update HUD on the screen.")]
+    [Tooltip("The section of the HUD used to indicate pop-up buttons in the top left.")]
     [SerializeField]
-    private Canvas HUDCanvas;
+    private GameObject HUDCanvasTopLeft;
     
     [Tooltip("The canvas used to create the cinematic black bars on the screen.")]
 	[SerializeField]
@@ -60,6 +60,7 @@ public class FinaleScript : MonoBehaviour
 	public AudioClip gunshot;
 	public AudioClip doorOpen;
 	public Transform target;
+	public Transform target2;
 
 	private int lineCount;
 	private float duration;
@@ -97,7 +98,7 @@ public class FinaleScript : MonoBehaviour
 
 	private void Ending() // This is the final cutscene. Coded in such a way so that the player is entirely motionless and stuck looking at a certain point, as per cutscene standards.
 	{
-        HUDCanvas.enabled = false;
+		HUDCanvasTopLeft.SetActive(false);
 		cam.transform.LookAt(target);
 		endgameCanvas.enabled = true;
 		characterController.enabled = false;
@@ -121,6 +122,7 @@ public class FinaleScript : MonoBehaviour
 		}
 		if (lineCount == 2)
 		{
+			cam.transform.LookAt(target2);
 			duration = smilerLine2ThroughDoor.length;
 			StartCoroutine(WaitForSound());
 			audio.PlayOneShot(smilerLine2ThroughDoor, 1);
