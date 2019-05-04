@@ -23,7 +23,7 @@ public class InventoryMenu : MonoBehaviour
 
 	private static InventoryMenu instance;
 	private CanvasGroup canvasGroup;
-	private RigidbodyFirstPersonController rigidbodyFirstPersonController;
+	private FirstPersonController firstPersonController;
 	private AudioSource audioSource;
 
 	public static InventoryMenu Instance
@@ -61,7 +61,7 @@ public class InventoryMenu : MonoBehaviour
 	{
 		canvasGroup.alpha = 1;
 		canvasGroup.interactable = true;
-		rigidbodyFirstPersonController.enabled = false;
+		firstPersonController.enabled = false;
 		Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.None;
 		audioSource.Play();
@@ -73,7 +73,7 @@ public class InventoryMenu : MonoBehaviour
 		canvasGroup.interactable = false;
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
-		rigidbodyFirstPersonController.enabled = true;
+		firstPersonController.enabled = true;
 		audioSource.Play();
 	}
 
@@ -124,7 +124,7 @@ public class InventoryMenu : MonoBehaviour
 			throw new System.Exception("An instance of InventoryMenu exists and no more than one can exist at one time.");
 
 		canvasGroup = GetComponent<CanvasGroup>();
-		rigidbodyFirstPersonController = FindObjectOfType<RigidbodyFirstPersonController>();
+		firstPersonController = FindObjectOfType<FirstPersonController>();
 		audioSource = GetComponent<AudioSource>();
 	}
 	private void Start()

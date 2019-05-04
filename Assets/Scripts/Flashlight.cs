@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-	public AudioSource audioSource;
-	public GameObject playerLight;
+    public Light myLight;
 
-	private void Update()
+	private AudioSource audio;
+	public AudioClip flashlightClick;
+
+	private void Start()
 	{
-		LightOn();
+		myLight.enabled = false;
+		audio = GetComponent<AudioSource>();
 	}
 
-	void LightOn()
+	private void Update()
+    {
+		CheckIfLight();
+    }
+
+	private void CheckIfLight()
 	{
-		if (Input.GetKey(KeyCode.F))
+		if (Input.GetKeyUp(KeyCode.F) && InventoryObject.hasFlashlight == true)
 		{
-			playerLight.SetActive(true);
-			audioSource.Play();
-		}
-		else
-		{
-			playerLight.SetActive(false);
+			audio.PlayOneShot(flashlightClick, 1);
+			myLight.enabled = !myLight.enabled;
 		}
 	}
 }
