@@ -34,7 +34,6 @@ public class InventoryObject : InteractiveObject
 	public static bool hasFlashlight;
 	public static bool itemPickedUp;
 	public static bool hasSmilersKey;
-
 	private new Renderer renderer;
 	private new Collider collider;
 
