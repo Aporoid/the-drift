@@ -286,8 +286,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Book page SFX \nDoor sound SFX \nLocked door SFX \nLightswitch click SFX
-    \nFlashlight click SFX \nMetal locker SFX\nGunshot SFX \n \nClaiming the Throne
-    cinematic music \n\nRichard Dahl \nThe Smiler \nPeter "
+    \nFlashlight click SFX \nMetal locker SFX\nGunshot SFX \n \n\"Claiming the Throne\"\n\"Seventh
+    Curse\"\n\"Awakening\"\n \n\nRichard Dahl \nThe Smiler \nPeter "
 --- !u!222 &180922539
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1126,9 +1126,13 @@ MonoBehaviour:
 
 
 
-    Kyle Cook
 
-    Rob Sandoval'
+
+    Marcus Arnold
+
+    Rob Sandoval
+
+    Kyle Cook'
 --- !u!222 &1660671602
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1188,7 +1192,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Thank you for playing.
+  m_Text: 'Thanks for playing
+
+
+'
 --- !u!222 &1664462078
 CanvasRenderer:
   m_ObjectHideFlags: 0

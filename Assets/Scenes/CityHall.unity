@@ -1163,7 +1163,7 @@ PrefabInstance:
     - target: {fileID: 1351341756749055017, guid: db5ee50c971212f4599f180051e3b77e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000022691247
+      value: 0.00001673037
       objectReference: {fileID: 0}
     - target: {fileID: 1351341756797714626, guid: db5ee50c971212f4599f180051e3b77e,
         type: 3}
@@ -1303,7 +1303,7 @@ PrefabInstance:
     - target: {fileID: 1351341758106244520, guid: db5ee50c971212f4599f180051e3b77e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000017015424
+      value: -0.000017515655
       objectReference: {fileID: 0}
     - target: {fileID: 1351341756794674216, guid: db5ee50c971212f4599f180051e3b77e,
         type: 3}
@@ -14115,6 +14115,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f7bd70355e6e0646aad871c1e7859b5, type: 3}
+--- !u!223 &847093017 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 1351341757274170778, guid: db5ee50c971212f4599f180051e3b77e,
+    type: 3}
+  m_PrefabInstance: {fileID: 69677945}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &851661423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27399,6 +27405,7 @@ MonoBehaviour:
   endgameCanvas: {fileID: 518906450}
   blackScreen: {fileID: 1792454960}
   cam: {fileID: 1766326930}
+  inventoryMenu: {fileID: 847093017}
   gunshot: {fileID: 8300000, guid: e0aa8614a5a82e74fac70c393e64e570, type: 3}
   doorOpen: {fileID: 8300000, guid: eeb2c49908e574d46ac04ae5f3143ba5, type: 3}
   target: {fileID: 1833315440}
@@ -28066,7 +28073,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20118
+  m_Name: pb_Mesh12590
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2

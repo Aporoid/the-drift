@@ -54,6 +54,10 @@ public class FinaleScript : MonoBehaviour
 	[Tooltip("The camera component used by the player controller, accessed to freeze their directional facing for the cutscene.")]
 	[SerializeField]
 	private Camera cam;
+
+	[Tooltip("The canvas controlling the inventory. This shouldn't be enabled during the cutscene.")]
+	[SerializeField]
+	private Canvas inventoryMenu;
 	#endregion
 
 	private new AudioSource audio;
@@ -101,6 +105,7 @@ public class FinaleScript : MonoBehaviour
 		HUDCanvasTopLeft.SetActive(false);
 		cam.transform.LookAt(target);
 		endgameCanvas.enabled = true;
+		inventoryMenu.enabled = false;
 		characterController.enabled = false;
 		if(lineCount == 0)
 		{
@@ -131,13 +136,21 @@ public class FinaleScript : MonoBehaviour
 		}
 		if (lineCount == 3)
 		{
+			duration = smilerLine3ThroughDoor.length;
+			StartCoroutine(WaitForSound());
+			audio.PlayOneShot(smilerLine3ThroughDoor, 1);
+			subtitles.text = "Smiler [muffled]: But there's only going to be one mayor to this city, and it's going to stay me! I don't need any pesky do-gooders telling me otherwise.";
+			StopCoroutine(WaitForSound());
+		}
+		if (lineCount == 4)
+		{
 			duration = doorOpen.length;
 			StartCoroutine(WaitForSound());
 			audio.PlayOneShot(doorOpen, 1);
 			subtitles.text = "";
 			StopCoroutine(WaitForSound());
 		}
-		if (lineCount == 4)
+		if (lineCount == 5)
 		{
 			duration = smilerEnding.length;
 			StartCoroutine(WaitForSound());
@@ -145,7 +158,7 @@ public class FinaleScript : MonoBehaviour
 			subtitles.text = "Smiler: Goodbye, detective.";
 			StopCoroutine(WaitForSound());
 		}
-		if (lineCount == 5)
+		if (lineCount == 6)
 		{
 			duration = gunshot.length;
 			StartCoroutine(WaitForSound());
