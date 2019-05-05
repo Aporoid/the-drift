@@ -43,6 +43,10 @@ public class PrologueController : MonoBehaviour
 	[SerializeField]
 	private Image noteImage;
 
+	[Tooltip("Image of the polaroid of Wasburn, to be displayed in time with the text.")]
+	[SerializeField]
+	private Image wasburnImage;
+
 	[Tooltip("Image of the polaroid church, to be displayed in time with the text.")]
 	[SerializeField]
 	private Image churchImage;
@@ -58,6 +62,7 @@ public class PrologueController : MonoBehaviour
 		badge.enabled = false;
 		noteImage.enabled = false;
 		churchImage.enabled = false;
+		wasburnImage.enabled = false;
 		Narration();
 	}
 
@@ -85,6 +90,7 @@ public class PrologueController : MonoBehaviour
 		}
 		if (lineCount == 2)
 		{
+			wasburnImage.enabled = true;
 			duration = line3.length;
 			StartCoroutine(WaitForSound());
 			audio.PlayOneShot(line3, 1);

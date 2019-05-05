@@ -15,9 +15,6 @@ public class HUDUpdater : MonoBehaviour
 
     private InventoryObject invObject;
 
-    private void Start() => invObject = new InventoryObject();
-  
-
     private void Update()
 	{
 		CheckFlashlight();
@@ -40,7 +37,7 @@ public class HUDUpdater : MonoBehaviour
 	{
 		if(InventoryObject.itemPickedUp == true)
 		{
-			displayTextPickups.text = $"{invObject.objectName} added to Evidence.";
+			displayTextPickups.text = "Item added to Evidence.";
 			StartCoroutine("ResetText");
 		}
 	}
