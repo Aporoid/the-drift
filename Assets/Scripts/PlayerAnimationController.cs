@@ -20,9 +20,5 @@ public class PlayerAnimationController : MonoBehaviour
 			animator.SetBool("isDead", true);
 			animator.Play("PlayerFallDown");
 		}
-		else
-		{
-
-		}
 	}
 }
