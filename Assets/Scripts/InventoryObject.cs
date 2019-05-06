@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,7 +33,7 @@ public class InventoryObject : InteractiveObject
 	public string Description => description;
 	public static int clueNumber;
 	public static bool hasFlashlight;
-	public static bool itemPickedUp;
+	public static event Action<InventoryObject> itemWasPickedUp;
 	public static bool hasSmilersKey;
 	private new Renderer renderer;
 	private new Collider collider;
@@ -61,7 +62,7 @@ public class InventoryObject : InteractiveObject
 		InventoryMenu.Instance.AddItemToMenu(this);
 		renderer.enabled = false;
 		collider.enabled = false;
-		itemPickedUp = true;
+		itemWasPickedUp?.Invoke(this);
 		TestClue();
 	}
 

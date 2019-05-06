@@ -18,7 +18,6 @@ public class HUDUpdater : MonoBehaviour
     private void Update()
 	{
 		CheckFlashlight();
-		ShowNewItems();
 	}
 
 	private void CheckFlashlight()
@@ -33,19 +32,25 @@ public class HUDUpdater : MonoBehaviour
 		}
 	}
 
-	private void ShowNewItems()
+	private void ShowNewItems(InventoryObject inventoryObject)
 	{
-		if(InventoryObject.itemPickedUp == true)
-		{
-			displayTextPickups.text = "Item added to Evidence.";
-			StartCoroutine("ResetText");
-		}
+		displayTextPickups.text = $"{inventoryObject.objectName} added to Evidence.";
+		StartCoroutine("ResetText");
 	}
 
 	private IEnumerator ResetText()
 	{
 		yield return new WaitForSeconds(3);
 		displayTextPickups.text = "";
-		InventoryObject.itemPickedUp = false;
+	}
+
+	private void OnEnable()
+	{
+		InventoryObject.itemWasPickedUp += ShowNewItems;
+	}
+
+	private void OnDisable()
+	{
+		InventoryObject.itemWasPickedUp -= ShowNewItems;
 	}
 }

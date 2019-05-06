@@ -126,6 +126,7 @@ public class InventoryMenu : MonoBehaviour
 		canvasGroup = GetComponent<CanvasGroup>();
 		firstPersonController = FindObjectOfType<FirstPersonController>();
 		audioSource = GetComponent<AudioSource>();
+		AddAllInventoryItemsToMenu();
 	}
 	private void Start()
 	{
@@ -139,5 +140,14 @@ public class InventoryMenu : MonoBehaviour
 		audioSource.volume = 0;
 		yield return new WaitForSeconds(audioSource.clip.length);
 		audioSource.volume = orignalVolume;
+	}
+
+	private void AddAllInventoryItemsToMenu()
+	{
+		foreach (InventoryObject inventoryObject in PlayerInventory.InventoryObjects)
+		{
+			AddItemToMenu(inventoryObject);
+			Debug.Log($"currently adding {inventoryObject.ObjectName}");
+		} 
 	}
 }
