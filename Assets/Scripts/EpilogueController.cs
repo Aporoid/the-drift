@@ -59,7 +59,7 @@ public class EpilogueController : MonoBehaviour
 		if (lineCount == 4)
 		{
 			StartCoroutine(WaitDuration());
-			endingSubtitles.text = "Our condolensences to the Dahl family go out to us today.";
+			endingSubtitles.text = "Our condolences to the Dahl family go out from us today...";
 		}
 		if (lineCount == 5)
 		{
