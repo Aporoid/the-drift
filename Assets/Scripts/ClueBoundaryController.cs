@@ -44,6 +44,9 @@ public class ClueBoundaryController : MonoBehaviour
 	[Tooltip("The collider box for detecting the barnyard boundary.")]
 	[SerializeField]
 	private Collider barnCollider;
+
+	[SerializeField]
+	private GameObject CityHallHint;
 	#endregion
 
 	private void Start()
@@ -52,6 +55,7 @@ public class ClueBoundaryController : MonoBehaviour
 		parkCollider.enabled = true;
 		graveyardCollider.enabled = true;
 		barnCollider.enabled = true;
+		CityHallHint.SetActive(false);
 	}
 
 	private void Update()
@@ -116,6 +120,7 @@ public class ClueBoundaryController : MonoBehaviour
 		{
 			barnBlocker.SetActive(false);
 			barnCollider.enabled = false;
+			CityHallHint.SetActive(true);
 		}
 	}
 }

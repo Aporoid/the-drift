@@ -27,6 +27,7 @@ public class milerLineControllerTemp : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
 		indicatorText.SetActive(false);
+
     }
 
     private void Update()
