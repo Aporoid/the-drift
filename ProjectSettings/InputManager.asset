@@ -342,13 +342,13 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: MapShow
-    descriptiveName: Shows the inventory menu.
+    m_Name: Skip
+    descriptiveName: Skips a menu sequence.
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: m
+    positiveButton: escape
     altNegativeButton: 
-    altPositiveButton: m
+    altPositiveButton: escape
     gravity: 1000
     dead: 0.001
     sensitivity: 1000

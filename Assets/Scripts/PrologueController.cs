@@ -66,6 +66,11 @@ public class PrologueController : MonoBehaviour
 		Narration();
 	}
 
+	private void Update()
+	{
+		CheckInput();
+	}
+
 	/// <summary>
 	/// This method plays an audio clip, runs an IEnumerator to wait for the clip to end, moves up a tick, and plays the next clip.
 	/// </summary>
@@ -134,5 +139,16 @@ public class PrologueController : MonoBehaviour
 	{
 		yield return new WaitForSeconds(5);
 		SceneManager.LoadScene(2);
+	}
+
+	private void CheckInput()
+	{
+		if (Input.GetButtonDown("Skip"))
+		{
+			StopAllCoroutines();
+			prologueSubtitles.text = "";
+			loadingScreen.SetActive(true);
+			StartCoroutine(Countdown());
+		}
 	}
 }
