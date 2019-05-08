@@ -1163,7 +1163,7 @@ PrefabInstance:
     - target: {fileID: 1351341756749055017, guid: db5ee50c971212f4599f180051e3b77e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000044291628
+      value: 0.000015313415
       objectReference: {fileID: 0}
     - target: {fileID: 1351341756797714626, guid: db5ee50c971212f4599f180051e3b77e,
         type: 3}
@@ -2492,7 +2492,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh127430
+  m_Name: pb_Mesh20246
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -19931,7 +19931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subtitles: {fileID: 376310159}
-  RichardLine1: {fileID: 8300000, guid: 8a776538ea314a8438be33ebcd28ce53, type: 3}
+  RichardLine1: {fileID: 8300000, guid: 00b916d84a1cdd7449590aa8f1b6e530, type: 3}
   smilerIntercom1: {fileID: 8300000, guid: 4e29da1897a81274eaa7da3bb4bc212c, type: 3}
   frontDoorLineCollider: {fileID: 1212882629}
 --- !u!114 &1212882631

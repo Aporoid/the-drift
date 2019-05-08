@@ -1268,11 +1268,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prologueSubtitles: {fileID: 1568040960}
   loadingScreen: {fileID: 2064439377}
-  line1: {fileID: 8300000, guid: 40f7c95e9edd2654bb1f259e2732a7e0, type: 3}
-  line2: {fileID: 8300000, guid: b370c453519fc3145a46bae220076461, type: 3}
-  line3: {fileID: 8300000, guid: a5deb7cff824a2a4ea0ca6020fb50017, type: 3}
-  line4: {fileID: 8300000, guid: 60bf589ea26e2ac49a651fdd2e602133, type: 3}
-  line5: {fileID: 8300000, guid: 1e450330bc13823419f4ec934a0c318e, type: 3}
+  line1: {fileID: 8300000, guid: ddd3d152773f50644a3b0d7f02ee7b3e, type: 3}
+  line2: {fileID: 8300000, guid: d42cf2f1c64222143bca15b9b2cca544, type: 3}
+  line3: {fileID: 8300000, guid: cb8ecf3eb8ed71b4b8bfe3ae85f53c7a, type: 3}
+  line4: {fileID: 8300000, guid: 3e1c98c8d6a559846b8ccba503455d76, type: 3}
+  line5: {fileID: 8300000, guid: 016afc7a8019b474f83644b3adc986bc, type: 3}
   badge: {fileID: 1974680348}
   noteImage: {fileID: 2016319660}
   wasburnImage: {fileID: 1867997562}
