@@ -17,11 +17,16 @@ public class milerLineControllerTemp : MonoBehaviour
     [SerializeField]
     private Collider smilerKeyCollider;
 
+	[SerializeField]
+	private GameObject indicatorText;
+
     private new AudioSource audio;
     private float duration;
+
     private void Start()
     {
         audio = GetComponent<AudioSource>();
+		indicatorText.SetActive(false);
     }
 
     private void Update()
@@ -47,6 +52,7 @@ public class milerLineControllerTemp : MonoBehaviour
         StartCoroutine(WaitForSound());
         audio.PlayOneShot(smilerDisappointedKey, 1);
         subtitles.text = "Smiler: Oh, so you’re not as dull as I thought you’d be. Well... That’s disappointing. Moving on.";
+		indicatorText.SetActive(true);
         StopCoroutine(WaitForSound());
     }
 
